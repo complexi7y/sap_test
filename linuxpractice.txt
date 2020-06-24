@@ -68,7 +68,8 @@ Points: 2
 Write a command that parses the output of ip addr linux command and returns the ip address
 Points 3
 
-ip --brief show addr
+ip --brief show addr 
+(suboptimal)
 
 Create user1 and user2 on a Linux machine. They should not be added in any root level access groups.
   a) Create a directory test1 in the user1 home directory also create a file/s in it. The permissions should be set so user2 can modify the user1 file/s, create new ones but is unable files owned by user1.
@@ -80,7 +81,7 @@ useradd -m test2
 
 a) mkdir /home/test1
 touch /home/test1/randomfile
-
+?
 
 b) mkdir /home/user1/test2
 ?
