@@ -1,0 +1,88 @@
+
+Linux Practice:
+
+Write a single command that will make existing file secret.txt readable and writeable only for the user, readable only for the group and with no permission for the rest
+Points: 1
+chmod 640 secret.txt
+
+Write a command to find all of the files which have been accessed within the last 30 days
+Points: 1
+find / -atime 30
+
+Write a command to find all of the files which have been modified after a certain file was modified in a given folder
+Tip: Use find
+Points: 1
+find / -newer /examplefolder/examplefile
+
+Find the biggest file on the file system.
+Points: 1
+find /  -type f -printf "%s %p\n" | sort -nr | head -1 
+
+List all open ports
+Points: 1
+netstat -l
+
+
+
+
+
+List the processes:
+ a. that use the most cpu - ps aux | sort -rnk 3 
+ a. that use the most memory - ps aux | sort -rnk 4 
+ a. that use the most i.o - iotop
+Points: 2
+
+
+Concatenate several text files and count how many times there is a line containing the separate word "jabra"
+Tip: Use cat and wc
+Points: 2
+
+cat examplefile.txt examplefile2.txt examplefile3.txt > examplefile4.txt | grep -c jabra examplefile4.txt 
+
+
+
+Write two commands. The first one creates directories server0, server1, ..... server9, and the second changes their permissions: user has full access, group can only see what is in the dir, but can't create or delete files, others has no rights
+Tip: Use shell expansions
+Points: 2
+
+1) mkdir server{1..9} 2) chmod 740 .server{1..9} 
+
+
+Write a command that finds all .txt files under a given folder and copies them to a new location by preserving their paths. For example if the file is located at /oldpath/somewhere/some/file.txt it should be located in /newpath/somewhere/some/file.txt.
+Points: 2
+
+rsync -av /oldpath/somewhere/some/*.txt /newpath/somewhere/some/
+(v - verbose, a - archive mode)
+
+Write a command that counts how many times a given word is encountered in a file.
+Points: 2
+
+grep -o -i exampleword examplefile.txt | wc -l
+
+Write a command that counts how many different users own files in directory ./training.
+Points: 2
+
+?
+
+
+Write a command that parses the output of ip addr linux command and returns the ip address
+Points 3
+
+ip --brief show addr
+
+Create user1 and user2 on a Linux machine. They should not be added in any root level access groups.
+  a) Create a directory test1 in the user1 home directory also create a file/s in it. The permissions should be set so user2 can modify the user1 file/s, create new ones but is unable files owned by user1.
+  b) Create a directory test2 in the user1 home directory. The permissions should be set so user2 can create modify files in it but all of the files in the directory that are created by user2 should be created under the user1 group
+Points: 4
+
+useradd -m test1
+useradd -m test2
+
+a) mkdir /home/test1
+touch /home/test1/randomfile
+
+
+b) mkdir /home/user1/test2
+?
+
+
